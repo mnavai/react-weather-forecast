@@ -1,10 +1,10 @@
 import React from "react";
 import './DropDown.css';
 
-const DropDown = (name, onClick, children) => {
+const DropDown = (className, name, onClick, text) => {
     return (
       <div className="drop-down">
-        <select className="select-city" name={name} onClick={onClick}>{children}</select>
+        <select className={className} name={name} onClick={onClick}>{text}</select>
       </div>
     );
 }
