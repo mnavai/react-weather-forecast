@@ -17,11 +17,10 @@
   }
 } */
 
-
 .top-section{
   height: 25vh;
   width: 100%;
-  background-image: url("/assets/background-top.png");
+  background-image: url("/public/assets/background-top.png");
   background-size: cover;
   height: 45vh;
 }

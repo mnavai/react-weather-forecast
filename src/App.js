@@ -1,12 +1,36 @@
-import Card from '../src/component/Card/Card';
-import './App.css';
-import DropDown from './component/DropDown/DropDown';
-import Footer from './component/Footer/Footer';
+import React, { Children } from "react";
+import Card from "../src/component/Card/Card";
+import DropDown from "./component/DropDown/DropDown";
+import Footer from "./component/Footer/Footer";
+import "./App.css";
 
-const handleOnClick = () => {
-
-}
 function App() {
+  // const [options, setOptions] = useState([]);
+
+  // useEffect(() => {
+  //   // Fetch and parse the CSV file
+  //   Papa.parse("my-weather-forecast/public/assets/city_coordinates.csv", {
+  //     header: true,
+  //     dynamicTyping: true,
+  //     complete: (results) => {
+  //       if (results.data.length > 0) {
+  //         // Map the CSV data to an array of options
+  //         const csvOptions = results.data.map((row) => ({
+  //           value: JSON.stringify({ lat: row.latitude, lon: row.longitude }),
+  //           label: `${row.city}, ${row.country}`,
+  //         }));
+  //         console.log("csvOptions".csvOptions);
+  //         setOptions(csvOptions);
+  //       }
+  //     },
+  //     error: (error) => {
+  //       console.error("CSV parsing error:", error);
+  //     },
+  //   });
+  // }, []);
+
+  const handleOnClick = () => {};
+  
   return (
     <div className="App">
       <div className="top-section"></div>
@@ -26,7 +50,7 @@ function App() {
         </a>
       </h3>
       <DropDown className="select-city" name="dropdown" onClick={handleOnClick}>
-        
+         
       </DropDown>
       <div className="weather-cards">
         <Card></Card>

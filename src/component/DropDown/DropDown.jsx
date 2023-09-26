@@ -5,6 +5,15 @@ const DropDown = (className, name, onClick) => {
   return (
     <div className="drop-down">
       <select className={className} name={name} onClick={onClick}>
+        {/* <option disabled="" selected="" value="">
+          {" "}
+          -- select a city --{" "}
+        </option>
+        {options.map((option, index) => (
+            <option key={index} value={option.value}>
+                {option.label}
+            </option>
+        ))} */}
         <option disabled="" selected="" value="">
           {" "}
           -- select a city --{" "}
