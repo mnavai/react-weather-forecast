@@ -1,7 +1,11 @@
 import Card from '../src/component/Card/Card';
 import './App.css';
+import DropDown from './component/DropDown/DropDown';
 import Footer from './component/Footer/Footer';
 
+const handleOnClick = () => {
+  
+}
 function App() {
   return (
     <div className="App">
@@ -22,6 +26,7 @@ function App() {
           <span class="keyword-magnet">7Timer!</span>
         </a>
       </h3>
+      <DropDown name="dropdown" onClick={handleOnClick}>Select the city</DropDown>
       <div className="weather-cards">
         <Card></Card>
       </div>
