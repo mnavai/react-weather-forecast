@@ -1,4 +1,6 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -15,10 +17,14 @@
   }
 } */
 
+
 .top-section{
   height: 25vh;
   width: 100%;
   background-image: url("/assets/background-top.png");
   background-size: cover;
-  height: 40vh;
+  height: 45vh;
+}
+.weather-cards{
+  flex: 1;
 }

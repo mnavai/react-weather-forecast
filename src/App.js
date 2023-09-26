@@ -1,11 +1,11 @@
 import Card from '../src/component/Card/Card';
 import './App.css';
+import Footer from './component/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
       <div className='top-section'>
-        <p>hi</p>
       </div>
       <h1 className="heading">EurOrbit</h1>
       <h3 className="sub-heading">European Weather Forecast</h3>
@@ -25,9 +25,7 @@ function App() {
       <div className="weather-cards">
         <Card></Card>
       </div>
-      <footer>
-        <p class="copyright-text">© Copyright 2023 EurOrbit</p>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }
