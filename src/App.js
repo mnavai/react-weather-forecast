@@ -1,12 +1,11 @@
 import Card from '../src/component/Card/Card';
 import './App.css';
 
-
 function App() {
   return (
     <div className="App">
       <div className='top-section'>
-        <img src="/assets/background-top.png" alt='earth'></img>
+        <p>hi</p>
       </div>
       <h1 className="heading">EurOrbit</h1>
       <h3 className="sub-heading">European Weather Forecast</h3>
