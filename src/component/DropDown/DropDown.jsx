@@ -16,7 +16,7 @@ const DropDown = (className, name, onClick) => {
         ))} */}
         <option disabled="" selected="" value="">
           {" "}
-          -- select a city --{" "}
+           Select the city {" "}
         </option>
         <option value='{"lat":"52.367","lon":"4.904"}'>
           Amsterdam, Netherlands
