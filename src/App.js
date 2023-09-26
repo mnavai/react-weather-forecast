@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import Card from "../src/component/Card/Card";
 import DropDown from "./component/DropDown/DropDown";
 import Footer from "./component/Footer/Footer";
@@ -50,7 +50,6 @@ function App() {
         </a>
       </h3>
       <DropDown className="select-city" name="dropdown" onClick={handleOnClick}>
-         
       </DropDown>
       <div className="weather-cards">
         <Card></Card>
