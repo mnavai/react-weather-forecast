@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import Card from '../src/component/Card/Card';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="heading">EurOrbit</h1>
+      <h3 className="sub-heading">European Weather Forecast</h3>
+      <h3 className="sub-sub-heading">
+        Powered by
+          <a
+            href="http://www.7timer.info/doc.php?lang=en"
+            target="_blank"
+            data-toggle="tooltip"
+            data-placement="Top"
+            data-original-title="Tap to visit 7Timer!" rel="noreferrer"
+          >
+            <span class="keyword-magnet">7Timer!</span>
+          </a>
+      </h3>
+      <div className="weather-cards">
+        <Card></Card>
+      </div>
+      <footer>
+        <p class="copyright-text">© Copyright 2023 EurOrbit</p>
+      </footer>
     </div>
   );
 }
