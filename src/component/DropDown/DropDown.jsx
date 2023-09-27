@@ -1,19 +1,10 @@
 import React from "react";
 import "./DropDown.css";
 
-const DropDown = (className, name, onClick) => {
+const DropDown = (className, name, onChange) => {
   return (
     <div className="drop-down">
-      <select className={className} name={name} onClick={onClick}>
-        {/* <option disabled="" selected="" value="">
-          {" "}
-          -- select a city --{" "}
-        </option>
-        {options.map((option, index) => (
-            <option key={index} value={option.value}>
-                {option.label}
-            </option>
-        ))} */}
+      <select className={className} name={name} onChange={onChange}>
         <option disabled="" selected="" value="">
           {" "}
            Select the city {" "}

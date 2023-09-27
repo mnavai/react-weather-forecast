@@ -1,35 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../src/component/Card/Card";
 import DropDown from "./component/DropDown/DropDown";
 import Footer from "./component/Footer/Footer";
 import "./App.css";
 
 function App() {
-  // const [options, setOptions] = useState([]);
 
-  // useEffect(() => {
-  //   // Fetch and parse the CSV file
-  //   Papa.parse("my-weather-forecast/public/assets/city_coordinates.csv", {
-  //     header: true,
-  //     dynamicTyping: true,
-  //     complete: (results) => {
-  //       if (results.data.length > 0) {
-  //         // Map the CSV data to an array of options
-  //         const csvOptions = results.data.map((row) => ({
-  //           value: JSON.stringify({ lat: row.latitude, lon: row.longitude }),
-  //           label: `${row.city}, ${row.country}`,
-  //         }));
-  //         console.log("csvOptions".csvOptions);
-  //         setOptions(csvOptions);
-  //       }
-  //     },
-  //     error: (error) => {
-  //       console.error("CSV parsing error:", error);
-  //     },
-  //   });
-  // }, []);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [forecastData, setForecastData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleOnClick = () => {};
+  const handleOnClick = () => {
+    // Fetch forecast data when city is selected
+    if (selectedCity) {
+      setLoading(true);
+      // Construct API URL based on the selected city
+      const apiURL = `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=astro&output=json`;
+
+      // Make the API request
+      fetch(apiURL)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setForecastData(data);
+          console.log("Data received from API:", data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        });
+    } else {
+      console.log("No city selected");
+    }
+  };
+
+  useEffect(() => {
+    handleOnClick();
+  }, [selectedCity]);
+
+ const handleDropdownChange = (event) => {
+   const selectedValue = event.target.value;
+   if (selectedValue) {
+     const selectedCityData = JSON.parse(selectedValue);
+     setSelectedCity(selectedCityData);
+   } else {
+     setSelectedCity("");
+   }
+ };
   
   return (
     <div className="App">
@@ -49,10 +71,20 @@ function App() {
           <span class="keyword-magnet">7Timer!</span>
         </a>
       </h3>
-      <DropDown className="select-city" name="dropdown" onClick={handleOnClick}>
-      </DropDown>
+      <DropDown
+        className="select-city"
+        name="dropdown"
+        onChange={handleDropdownChange}
+      ></DropDown>
       <div className="weather-cards">
-        <Card></Card>
+        {loading ? (
+          <p>Loading...</p>
+        ) : forecastData ? (
+          // Render your weather cards here using forecastData
+          <Card data={forecastData} />
+        ) : (
+          <p>Please select a city to see the forecast.</p>
+        )}
       </div>
       <Footer></Footer>
     </div>
