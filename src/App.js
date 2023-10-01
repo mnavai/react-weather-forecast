@@ -11,7 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleOnClick = () => {
-    // Fetch forecast data when city is selected
+    // Fetch forecast data when the city is selected
     if (selectedCity) {
       setLoading(true);
       // Construct API URL based on the selected city
