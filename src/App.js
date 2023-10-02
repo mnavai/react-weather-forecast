@@ -10,44 +10,35 @@ function App() {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleOnClick = () => {
-    // Fetch forecast data when the city is selected
-    if (selectedCity) {
-      setLoading(true);
-      // Construct API URL based on the selected city
-      const apiURL = `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=astro&output=json`;
+  const handleOnClick = async () => {
+    if(selectedCity){
+      try {
+        const response = await fetch(
+          `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=astro&output=json`
+        );
 
-      // Make the API request
-      fetch(apiURL)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setForecastData(data);
-          console.log("Data received from API:", data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-          setLoading(false);
-        });
-    } else {
-      console.log("No city selected");
+        if(!response.ok){
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        } else {
+          const data = await response.json();
+          console.log("data:", data)
+        }
+
+      } catch(error) {
+        console.error("Error fetching data from API", error)
+      }
     }
-  };
-
+  }
+  
   useEffect(() => {
     handleOnClick();
   }, [selectedCity]);
 
  const handleDropdownChange = (event) => {
    const selectedValue = event.target.value;
+   console.log("selected city", selectedValue)
    if (selectedValue) {
-     const selectedCityData = JSON.parse(selectedValue);
-     setSelectedCity(selectedCityData);
+     setSelectedCity(selectedValue);
    } else {
      setSelectedCity("");
    }
@@ -68,7 +59,7 @@ function App() {
           data-original-title="Tap to visit 7Timer!"
           rel="noreferrer"
         >
-          <span class="keyword-magnet">7Timer!</span>
+          <span className="keyword-magnet">7Timer!</span>
         </a>
       </h3>
       <DropDown

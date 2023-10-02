@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./DropDown.css";
 
 const DropDown = (className, name, onChange) => {
+  const [selectedCity, setSelectedCity] = useState("");
+  
+  const handleOnChange = (e) => {
+    setSelectedCity(e.target.value)
+    console.log("selected city is ", e.target.value)
+  }
+
+  const handleOnClick = async () => {
+    if (selectedCity) {
+      try {
+        const response = await fetch(
+          `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=astro&output=json`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        } else {
+          const data = await response.json();
+          console.log("data:", data);
+        }
+      } catch (error) {
+        console.error("Error fetching data from API", error);
+      }
+    }
+  };
+  
+  useEffect(() => {
+    handleOnClick();
+  }, [selectedCity]);
+  
   return (
     <div className="drop-down">
-      <select className={className} name={name} onChange={onChange}>
-        <option disabled="" selected="" value="">
-          {" "}
-           Select the city {" "}
-        </option>
+      <select className={className} name={name} onChange={handleOnChange} >
         <option value='{"lat":"52.367","lon":"4.904"}'>
           Amsterdam, Netherlands
         </option>
