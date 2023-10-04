@@ -10,30 +10,6 @@ function App() {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleOnClick = async () => {
-    if(selectedCity){
-      try {
-        const response = await fetch(
-          `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=astro&output=json`
-        );
-
-        if(!response.ok){
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        } else {
-          const data = await response.json();
-          console.log("data:", data)
-        }
-
-      } catch(error) {
-        console.error("Error fetching data from API", error)
-      }
-    }
-  }
-  
-  useEffect(() => {
-    handleOnClick();
-  }, [selectedCity]);
-
  const handleDropdownChange = (event) => {
    const selectedValue = event.target.value;
    console.log("selected city", selectedValue)
