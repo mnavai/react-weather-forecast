@@ -5,21 +5,43 @@ import Footer from "./component/Footer/Footer";
 import "./App.css";
 
 function App() {
-
   const [selectedCity, setSelectedCity] = useState("");
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
 
- const handleDropdownChange = (event) => {
-   const selectedValue = event.target.value;
-   console.log("selected city", selectedValue)
-   if (selectedValue) {
-     setSelectedCity(selectedValue);
-   } else {
-     setSelectedCity("");
-   }
- };
-  
+  const handleDropdownChange = (selectedValue) => {
+    console.log("selected city", selectedValue);
+    const selectedCity = JSON.parse(selectedValue)
+    setSelectedCity(selectedCity);
+  };
+
+  useEffect(() => {
+    const handleOnClick = async () => {
+      if (selectedCity) {
+        try {
+          const response = await fetch(
+            `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=astro&output=json`
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          } else {
+            const data = await response.json();
+            console.log("data:", data);
+            setForecastData(data);
+            console.log("forecast data is", data)
+            setLoading(false);
+          }
+        } catch (error) {
+          console.error("Error fetching data from API", error);
+          setLoading(false);
+        }
+      }
+    };
+
+    handleOnClick();
+  }, [selectedCity]);
+
   return (
     <div className="App">
       <div className="top-section"></div>
@@ -46,11 +68,20 @@ function App() {
       <div className="weather-cards">
         {loading ? (
           <p>Loading...</p>
-        ) : forecastData ? (
-          // Render your weather cards here using forecastData
-          <Card data={forecastData} />
+        ) : forecastData && Array.isArray(forecastData) ? (
+          forecastData.map((day, index) => (
+            <Card
+              key={index}
+              date={day.date}
+              src={day.src}
+              alt={day.alt}
+              status={day.status}
+              high={day.high}
+              low={day.low}
+            />
+          ))
         ) : (
-          <p>Please select a city to see the forecast.</p>
+          <p>No forecast data available.</p>
         )}
       </div>
       <Footer></Footer>
