@@ -14,7 +14,7 @@ function App() {
     const selectedCity = JSON.parse(selectedValue)
     setSelectedCity(selectedCity);
   };
-
+  //fetching successfully done
   useEffect(() => {
     const handleOnClick = async () => {
       if (selectedCity) {
@@ -66,23 +66,10 @@ function App() {
         onChange={handleDropdownChange}
       ></DropDown>
       <div className="weather-cards">
-        {loading ? (
-          <p>Loading...</p>
-        ) : forecastData && Array.isArray(forecastData) ? (
-          forecastData.map((day, index) => (
-            <Card
-              key={index}
-              date={day.date}
-              src={day.src}
-              alt={day.alt}
-              status={day.status}
-              high={day.high}
-              low={day.low}
-            />
-          ))
-        ) : (
-          <p>No forecast data available.</p>
-        )}
+        {/* <Card forecastData={forecastData.dataseries[0]} />
+        <Card forecastData={forecastData.dataseries[1]} />
+        <Card forecastData={forecastData.dataseries[2]} />
+        <Card forecastData={forecastData.dataseries[3]} /> */}
       </div>
       <Footer></Footer>
     </div>
