@@ -70,7 +70,6 @@ function App() {
             const parser = new DOMParser()
             const xmlDoc = parser.parseFromString(data, 'application/xml')
             const jsonData = xmlToJson(xmlDoc)
-            console.log("data:", jsonData);
             setForecastData(jsonData);
             console.log("forecast data is", jsonData)
             setLoading(false);
@@ -111,10 +110,15 @@ function App() {
         onChange={handleDropdownChange}
       ></DropDown>
       <div className="weather-cards">
-        {/* <Card forecastData={forecastData.dataseries[0]} />
-        <Card forecastData={forecastData.dataseries[1]} />
-        <Card forecastData={forecastData.dataseries[2]} />
-        <Card forecastData={forecastData.dataseries[3]} /> */}
+        {forecastData &&
+          forecastData.product.dataseries.data.map((forecast, index) => (
+            <Card
+              key={index}
+              weather={forecast.weather}
+              high={forecast.temp2m_max}
+              low={forecast.temp2m_min}
+            />
+          ))}
       </div>
       <Footer></Footer>
     </div>

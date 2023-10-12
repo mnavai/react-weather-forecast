@@ -1,15 +1,15 @@
 import React from "react";
 import "./Card.css";
 
-const Card = (src,alt, forecastData) => {
+const Card = ({ weather, high, low }) => {
   return (
     <div className="card-container">
-      <h1 className="card-date">{forecastData.date}</h1>
-      <img src={src} alt={alt}></img>
-      <h3 className="card-weather-status">{forecastData.status}</h3>
-      <h5 className="high">{forecastData.high}</h5>
-      <h5 className="low">{forecastData.low}</h5>
+      <h1 className="card-date">{weather.description}</h1>
+      <h3 className="card-weather-status">{weather.description}</h3>
+      <h5 className="high">{high["#text"]}</h5>
+      <h5 className="low">{low["#text"]}</h5>
     </div>
   );
 };
+
 export default Card;
