@@ -113,6 +113,7 @@ function App() {
         {forecastData &&
           forecastData.product.dataseries.data.map((forecast, index) => (
             <Card
+              className="card"
               key={index}
               weather={forecast.weather}
               high={forecast.temp2m_max}

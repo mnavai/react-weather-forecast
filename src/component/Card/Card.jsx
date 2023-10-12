@@ -1,13 +1,13 @@
 import React from "react";
 import "./Card.css";
 
-const Card = ({ weather, high, low }) => {
+const Card = ({ className,weather, high, low }) => {
   return (
-    <div className="card-container">
+    <div className={className}>
       <h1 className="card-date">{weather.description}</h1>
       <h3 className="card-weather-status">{weather.description}</h3>
-      <h5 className="high">{high["#text"]}</h5>
-      <h5 className="low">{low["#text"]}</h5>
+      <h5 className="high">High {high["#text"]}</h5>
+      <h5 className="low">Low {low["#text"]}</h5>
     </div>
   );
 };
