@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { addDays, format, startOfDay } from "date-fns";
 import Card from "../src/component/Card/Card";
 import DropDown from "./component/DropDown/DropDown";
 import Footer from "./component/Footer/Footer";
@@ -11,7 +12,7 @@ function App() {
 
   const handleDropdownChange = (selectedValue) => {
     console.log("selected city", selectedValue);
-    const selectedCity = JSON.parse(selectedValue)
+    const selectedCity = JSON.parse(selectedValue);
     setSelectedCity(selectedCity);
   };
   //fetching successfully done
@@ -65,16 +66,13 @@ function App() {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           } else {
-
             const data = await response.text();
-            const parser = new DOMParser()
-            const xmlDoc = parser.parseFromString(data, 'application/xml')
-            const jsonData = xmlToJson(xmlDoc)
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, "application/xml");
+            const jsonData = xmlToJson(xmlDoc);
             setForecastData(jsonData);
-            console.log("forecast data is", jsonData)
+            console.log("forecast data is", jsonData);
             setLoading(false);
-
-
           }
         } catch (error) {
           console.error("Error fetching data from API", error);
@@ -85,6 +83,13 @@ function App() {
 
     handleOnClick();
   }, [selectedCity]);
+
+  // Calculate the dates for each card and pass them as props
+  const today = startOfDay(new Date());
+  const cardDates = Array.from({ length: 7 }, (_, index) => {
+    const incrementedDate = addDays(today, index);
+    return format(incrementedDate, "EEE MMM dd");
+  });
 
   return (
     <div className="App">
@@ -118,6 +123,7 @@ function App() {
               weather={forecast.weather}
               high={forecast.temp2m_max}
               low={forecast.temp2m_min}
+              date={cardDates[index]}
             />
           ))}
       </div>
