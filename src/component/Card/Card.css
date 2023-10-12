@@ -18,3 +18,9 @@
   font-weight: bold;
   color: white;
 }
+.low, .high {
+    padding: .5rem;
+}
+.temp{
+    display: flex;
+}
