@@ -47,6 +47,7 @@
     .card{
         width: 24rem;
         padding: 0;
+        margin: 1rem;
     }
     .card-img {
     height: 100px;
@@ -55,8 +56,12 @@
     margin-left: auto;
     margin-right: auto;
 }
-.low,.high{
+    .low,.high{
         margin: 0 0 1rem 0;
+        font-size: 25px;
+    }
+    .card-weather-status{
+        font-size: 25px;
     }
 }
 
@@ -68,6 +73,7 @@
     .card{
         width: 10rem;
         padding: 1.5rem;
+        margin: 1rem;
     }
     .low,.high{
         margin: 0;
