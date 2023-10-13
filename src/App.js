@@ -134,53 +134,55 @@ function App() {
 
   return (
     <div className="App">
-      <div className="top-section">
-        <h1 className="heading">EurOrbit</h1>
-        <h3 className="sub-heading">European Weather Forecast</h3>
-        <h3 className="sub-sub-heading">
-          Powered by
-          <a
-            href="http://www.7timer.info/doc.php?lang=en"
-            target="_blank"
-            data-toggle="tooltip"
-            data-placement="Top"
-            data-original-title="Tap to visit 7Timer!"
-            rel="noreferrer"
-            className="link"
-          >
-            <span className="keyword-magnet">7Timer!</span>
-          </a>
-        </h3>
-      </div>
-      <div className="select-group">
-        <lebel className="city-heading">Select the city</lebel>
-        <DropDown
-          className="select-city"
-          name="dropdown"
-          onChange={handleDropdownChange}
-        ></DropDown>
-      </div>
-      {/* {loading && <div className="loading-sign">Loading...</div>} */}
-      <div className="weather-cards">
-        {forecastData &&
-          forecastData.product.dataseries.data.map((forecast, index) => {
-            const weatherType = forecast.weather["#text"].toLowerCase();
-            const imageSrc = weatherImages[weatherType];
-            const weatherDescription =
-              weatherDescriptions[weatherType] || forecast.weather["#text"];
-            return (
-              <Card
-                className="card"
-                key={index}
-                weather={weatherDescription}
-                high={forecast.temp2m_max}
-                low={forecast.temp2m_min}
-                date={cardDates[index]}
-                src={imageSrc}
-                alt={`Weather: ${weatherType}`}
-              />
-            );
-          })}
+      <div className="wrapper">
+        <div className="top-section">
+          <h1 className="heading">EurOrbit</h1>
+          <h3 className="sub-heading">European Weather Forecast</h3>
+          <h3 className="sub-sub-heading">
+            Powered by
+            <a
+              href="http://www.7timer.info/doc.php?lang=en"
+              target="_blank"
+              data-toggle="tooltip"
+              data-placement="Top"
+              data-original-title="Tap to visit 7Timer!"
+              rel="noreferrer"
+              className="link"
+            >
+              <span className="keyword-magnet">7Timer!</span>
+            </a>
+          </h3>
+        </div>
+        <div className="select-group">
+          <lebel className="city-heading">Select the city</lebel>
+          <DropDown
+            className="select-city"
+            name="dropdown"
+            onChange={handleDropdownChange}
+          ></DropDown>
+        </div>
+        {/* {loading && <div className="loading-sign">Loading...</div>} */}
+        <div className="weather-cards">
+          {forecastData &&
+            forecastData.product.dataseries.data.map((forecast, index) => {
+              const weatherType = forecast.weather["#text"].toLowerCase();
+              const imageSrc = weatherImages[weatherType];
+              const weatherDescription =
+                weatherDescriptions[weatherType] || forecast.weather["#text"];
+              return (
+                <Card
+                  className="card"
+                  key={index}
+                  weather={weatherDescription}
+                  high={forecast.temp2m_max}
+                  low={forecast.temp2m_min}
+                  date={cardDates[index]}
+                  src={imageSrc}
+                  alt={`Weather: ${weatherType}`}
+                />
+              );
+            })}
+        </div>
       </div>
       <Footer></Footer>
     </div>

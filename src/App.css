@@ -9,6 +9,7 @@
 .heading {
   color: white;
   font-size: 50px;
+  padding-top: 2rem;
 }
 .sub-heading {
   color: rgb(21, 195, 229);
@@ -55,6 +56,10 @@
   font-size: 18px;
   font-weight: bold;
 }
+.wrapper{
+  height:89%;
+  margin-bottom: 5rem;
+}
 
 
 @media screen and (min-width: 579px) and (max-width: 1180px) {
@@ -67,6 +72,9 @@
     width: 70vw;
     margin: 2rem auto;
   }
+  .heading{
+    padding-top: 2rem;
+  }
 }
 
 @media screen and (max-width: 578px) {
@@ -78,7 +86,8 @@
     margin: 2rem auto;
   }
   .heading {
-    font-size: 40px;
+    font-size: 30px;
+    padding-top: 2rem;
   }
   .sub-heading {
     font-size: 20px;
