@@ -7,23 +7,23 @@
 .App-link {
   color: #61dafb;
 }
-.heading{
+.heading {
   color: white;
   font-size: 50px;
 }
-.sub-heading{
-  color:rgb(21, 195, 229);
+.sub-heading {
+  color: rgb(21, 195, 229);
   font-size: 30px;
 }
-.sub-sub-heading{
+.sub-sub-heading {
   color: white;
 }
-.link{
-  color:rgb(21, 195, 229);
+.link {
+  color: rgb(21, 195, 229);
   padding-left: 1rem;
   text-decoration: none;
 }
-.top-section{
+.top-section {
   margin: 5rem auto 2rem auto;
   background-color: rgba(40, 42, 43, 0.9);
   height: 25vh;
@@ -31,16 +31,41 @@
   border-radius: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
-.weather-cards{
+.weather-cards {
   flex: 1;
 }
-.select-group{
+.select-group {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.city-heading{
+.city-heading {
   color: white;
   font-size: 25px;
   font-weight: bold;
+}
+
+.keyword-magnet:hover {
+  color: yellow;
+}
+
+@media screen and (min-width: 579px) and (max-width: 1180px) {
+  .top-section {
+    height: 30vh;
+    width: 70vw;
+  }
+
+}
+
+@media screen and (max-width: 578px) {
+  .top-section {
+    height: 25vh;
+  }
+  .heading{
+    font-size: 40px;
+  }
+  .sub-heading{
+    font-size: 20px;
+  }
+
 }
