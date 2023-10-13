@@ -20,7 +20,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 @media screen and (min-width: 579px) and (max-width: 1180px) {
   body{
     display: flex;
