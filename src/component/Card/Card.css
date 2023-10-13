@@ -17,9 +17,9 @@
   
 }
 .card-date{
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
-  color: white;
+  color:white;
 }
 .low, .high {
     padding: .5rem;

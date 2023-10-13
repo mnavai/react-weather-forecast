@@ -7,14 +7,28 @@
 .App-link {
   color: #61dafb;
 }
-
+.heading{
+  color: white;
+  font-size: 50px;
+}
+.sub-heading{
+  color:rgb(21, 195, 229);
+  font-size: 30px;
+}
+.sub-sub-heading{
+  color: white;
+}
+.link{
+  color:rgb(21, 195, 229);
+  padding-left: 1rem;
+  text-decoration: none;
+}
 .top-section{
   margin: 5rem auto 2rem auto;
   background-color: rgba(40, 42, 43, 0.9);
-  height: 20vh;
+  height: 25vh;
   width: 91%;
   border-radius: 20px;
-
 }
 .weather-cards{
   flex: 1;

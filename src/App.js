@@ -124,6 +124,7 @@ function App() {
             data-placement="Top"
             data-original-title="Tap to visit 7Timer!"
             rel="noreferrer"
+            className="link"
           >
             <span className="keyword-magnet">7Timer!</span>
           </a>
