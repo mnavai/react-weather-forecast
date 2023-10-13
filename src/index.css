@@ -2,15 +2,15 @@ body {
   margin: 0;
   padding: 0;
   border:0;
-  background-color: rgb(215, 213, 213);
   font-family: 'Ubuntu', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(206, 67%, 91%);
+  background-color: hsl(0, 0%, 43%);
   background-image: url(/public/assets/images/weather.gif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 head{
   margin: 0;
