@@ -6,7 +6,9 @@ const Card = ({ className, weather, high, low, date, src, alt }) => {
     <div className={className}>
       <h1 className="card-date">{date}</h1>
       <img className="card-img" src={src} alt={alt}></img>
-      <h3 className="card-weather-status">{weather["#text"]}</h3>
+      <h3 className="card-weather-status">
+        {weather["#text"].charAt(0).toUpperCase() + weather["#text"].slice(1)}
+      </h3>
       <div className="temp">
         <h5 className="high">H: {high["#text"]}</h5>
         <h5 className="low">L: {low["#text"]}</h5>

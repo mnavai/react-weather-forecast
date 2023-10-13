@@ -23,6 +23,7 @@
 }
 .temp{
     display: flex;
+    justify-content: center;
 }
 .card-img{
     height: 80px;
