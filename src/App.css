@@ -50,22 +50,35 @@
 }
 
 @media screen and (min-width: 579px) and (max-width: 1180px) {
-  .top-section {
-    height: 30vh;
-    width: 70vw;
+  body {
+    background-image: none;
   }
 
+  .top-section {
+    height: 23vh;
+    width: 70vw;
+  }
 }
 
 @media screen and (max-width: 578px) {
+  body {
+    background-image: none;
+  }
   .top-section {
     height: 25vh;
+    margin: 2rem auto;
   }
   .heading{
     font-size: 40px;
   }
   .sub-heading{
     font-size: 20px;
+  }
+  .city-heading{
+    font-size: 18px;
+  }
+  .select-group{
+    flex-direction: column;
   }
 
 }
