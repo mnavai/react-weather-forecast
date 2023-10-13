@@ -63,7 +63,6 @@ function App() {
             `http://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=civillight&output=xml`
           );
 
-
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           } else {
@@ -84,6 +83,25 @@ function App() {
 
     handleOnClick();
   }, [selectedCity]);
+
+  const weatherImages = {
+    clear: "/assets/images/clear.png",
+    cloudy: "/assets/images/cloudy.png",
+    fog: "/assets/images/fog.png",
+    humid: "/assets/images/humid.png",
+    ishower: "/assets/images/ishower.png",
+    lightrain: "/assets/images/lightrain.png",
+    lightsnow: "/assets/images/lightsnow.png",
+    mcloudy: "/assets/images/mcloudy.png",
+    oshower: "/assets/images/oshower.png",
+    pcloudy: "/assets/images/pcloudy.png",
+    rain: "/assets/images/rain.png",
+    rainsnow: "/assets/images/rainsnow.png",
+    snow: "/assets/images/snow.png",
+    tsrain: "/assets/images/tsrain.png",
+    tstorm: "/assets/images/tstorm.png",
+    windy: "/assets/images/windy.png"
+  };
 
   // Calculate the dates for each card and pass them as props
   const today = startOfDay(new Date());
@@ -117,16 +135,22 @@ function App() {
       ></DropDown>
       <div className="weather-cards">
         {forecastData &&
-          forecastData.product.dataseries.data.map((forecast, index) => (
-            <Card
-              className="card"
-              key={index}
-              weather={forecast.weather}
-              high={forecast.temp2m_max}
-              low={forecast.temp2m_min}
-              date={cardDates[index]}
-            />
-          ))}
+          forecastData.product.dataseries.data.map((forecast, index) => {
+            const weatherType = forecast.weather["#text"].toLowerCase();
+            const imageSrc = weatherImages[weatherType]
+            return (
+              <Card
+                className="card"
+                key={index}
+                weather={forecast.weather}
+                high={forecast.temp2m_max}
+                low={forecast.temp2m_min}
+                date={cardDates[index]}
+                src={imageSrc}
+                alt={`Weather: ${weatherType}`}
+              />
+            );
+        })}
       </div>
       <Footer></Footer>
     </div>
