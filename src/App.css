@@ -8,21 +8,13 @@
   color: #61dafb;
 }
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .top-section{
-  height: 25vh;
-  width: 100%;
-  background-image: url("/public/assets/background-top.png");
-  background-size: cover;
-  height: 45vh;
+  margin: 5rem auto 2rem auto;
+  background-color: rgba(40, 42, 43, 0.9);
+  height: 20vh;
+  width: 91%;
+  border-radius: 20px;
+
 }
 .weather-cards{
   flex: 1;

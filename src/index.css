@@ -7,6 +7,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: hsl(206, 67%, 91%);
+  background-image: url(/public/assets/images/weather.gif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 head{
   margin: 0;

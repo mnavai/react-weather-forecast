@@ -112,22 +112,23 @@ function App() {
 
   return (
     <div className="App">
-      <div className="top-section"></div>
-      <h1 className="heading">EurOrbit</h1>
-      <h3 className="sub-heading">European Weather Forecast</h3>
-      <h3 className="sub-sub-heading">
-        Powered by
-        <a
-          href="http://www.7timer.info/doc.php?lang=en"
-          target="_blank"
-          data-toggle="tooltip"
-          data-placement="Top"
-          data-original-title="Tap to visit 7Timer!"
-          rel="noreferrer"
-        >
-          <span className="keyword-magnet">7Timer!</span>
-        </a>
-      </h3>
+      <div className="top-section">
+        <h1 className="heading">EurOrbit</h1>
+        <h3 className="sub-heading">European Weather Forecast</h3>
+        <h3 className="sub-sub-heading">
+          Powered by
+          <a
+            href="http://www.7timer.info/doc.php?lang=en"
+            target="_blank"
+            data-toggle="tooltip"
+            data-placement="Top"
+            data-original-title="Tap to visit 7Timer!"
+            rel="noreferrer"
+          >
+            <span className="keyword-magnet">7Timer!</span>
+          </a>
+        </h3>
+      </div>
       <DropDown
         className="select-city"
         name="dropdown"
@@ -137,7 +138,7 @@ function App() {
         {forecastData &&
           forecastData.product.dataseries.data.map((forecast, index) => {
             const weatherType = forecast.weather["#text"].toLowerCase();
-            const imageSrc = weatherImages[weatherType]
+            const imageSrc = weatherImages[weatherType];
             return (
               <Card
                 className="card"
@@ -150,7 +151,7 @@ function App() {
                 alt={`Weather: ${weatherType}`}
               />
             );
-        })}
+          })}
       </div>
       <Footer></Footer>
     </div>
