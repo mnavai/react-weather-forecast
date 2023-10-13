@@ -34,3 +34,13 @@
 .weather-cards{
   flex: 1;
 }
+.select-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.city-heading{
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}

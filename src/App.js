@@ -130,11 +130,14 @@ function App() {
           </a>
         </h3>
       </div>
-      <DropDown
-        className="select-city"
-        name="dropdown"
-        onChange={handleDropdownChange}
-      ></DropDown>
+      <div className="select-group">
+        <lebel className="city-heading">Select the city</lebel>
+        <DropDown
+          className="select-city"
+          name="dropdown"
+          onChange={handleDropdownChange}
+        ></DropDown>
+      </div>
       <div className="weather-cards">
         {forecastData &&
           forecastData.product.dataseries.data.map((forecast, index) => {
