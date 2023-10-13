@@ -25,6 +25,7 @@
 }
 .low, .high {
     padding: .5rem;
+    margin: .5rem 0 1rem 0;
 }
 .temp{
     display: flex;
