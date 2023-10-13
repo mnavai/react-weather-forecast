@@ -11,6 +11,7 @@
 }
 .card-weather-status, .high, .low{
     color: white;
+    font-size: 25px;
 }
 .weather-cards{
   display: flex;
