@@ -60,8 +60,9 @@ function App() {
       if (selectedCity) {
         try {
           const response = await fetch(
-            `http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=civillight&output=xml`
+            `http://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=civillight&output=xml`
           );
+
 
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
