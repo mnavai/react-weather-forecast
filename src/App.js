@@ -14,6 +14,7 @@ function App() {
     console.log("selected city", selectedValue);
     const selectedCity = JSON.parse(selectedValue);
     setSelectedCity(selectedCity);
+    setLoading(true)
   };
   //fetching successfully done
   useEffect(() => {
@@ -59,6 +60,7 @@ function App() {
 
       if (selectedCity) {
         try {
+          setLoading(true)
           const response = await fetch(
             `http://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=civillight&output=xml`
           );
@@ -158,12 +160,14 @@ function App() {
           onChange={handleDropdownChange}
         ></DropDown>
       </div>
+      {/* {loading && <div className="loading-sign">Loading...</div>} */}
       <div className="weather-cards">
         {forecastData &&
           forecastData.product.dataseries.data.map((forecast, index) => {
             const weatherType = forecast.weather["#text"].toLowerCase();
             const imageSrc = weatherImages[weatherType];
-            const weatherDescription = weatherDescriptions[weatherType] || forecast.weather["#text"];
+            const weatherDescription =
+              weatherDescriptions[weatherType] || forecast.weather["#text"];
             return (
               <Card
                 className="card"

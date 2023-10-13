@@ -27,7 +27,7 @@
 .low, .high {
     padding: .5rem;
     margin: .5rem 0 1rem 0;
-    font-size: 23px;
+    font-size: 18px;
 }
 .temp{
     display: flex;
@@ -58,7 +58,7 @@
 }
     .low,.high{
         margin: 0 0 1rem 0;
-        font-size: 25px;
+        font-size: 22px;
     }
     .card-weather-status{
         font-size: 25px;

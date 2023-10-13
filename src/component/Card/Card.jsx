@@ -11,8 +11,8 @@ const Card = ({ className, weather, high, low, date, src, alt }) => {
         {weather}
       </h3>
       <div className="temp">
-        <h5 className="high">H: {high["#text"]}</h5>
-        <h5 className="low">L: {low["#text"]}</h5>
+        <h5 className="high">H: {high["#text"]} C</h5>
+        <h5 className="low">L: {low["#text"]} C</h5>
       </div>
     </div>
   );
