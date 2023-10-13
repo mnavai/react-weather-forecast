@@ -103,6 +103,26 @@ function App() {
     windy: "/assets/images/windy.png"
   };
 
+  const weatherDescriptions = {
+    ishower: "Isolated Showers",
+    oshower: "Occasional Showers",
+    pcloudy: "Partly Cloudy",
+    tsrain: "Thunderstorm | Rain",
+    tsnow: "Thunderstorm | Snow",
+    clear: "Clear",
+    cloudy: "Cloudy",
+    fog: "Fog",
+    humid: "Humid",
+    lightrain: "Light Rain",
+    lightsnow: "Light Snow",
+    mcloudy: "Moderate Cloudy",
+    rain: "Rain",
+    rainsnow: "Rain | Snow",
+    snow: "Snow",
+    tstorm: "Thunderstom",
+    windy: "Windy",
+  };
+
   // Calculate the dates for each card and pass them as props
   const today = startOfDay(new Date());
   const cardDates = Array.from({ length: 7 }, (_, index) => {
@@ -143,11 +163,12 @@ function App() {
           forecastData.product.dataseries.data.map((forecast, index) => {
             const weatherType = forecast.weather["#text"].toLowerCase();
             const imageSrc = weatherImages[weatherType];
+            const weatherDescription = weatherDescriptions[weatherType] || forecast.weather["#text"];
             return (
               <Card
                 className="card"
                 key={index}
-                weather={forecast.weather}
+                weather={weatherDescription}
                 high={forecast.temp2m_max}
                 low={forecast.temp2m_min}
                 date={cardDates[index]}
