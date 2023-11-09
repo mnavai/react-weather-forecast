@@ -62,7 +62,7 @@ function App() {
         try {
           setLoading(true)
           const response = await fetch(
-            `http://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=civillight&output=xml`
+            `https://www.7timer.info/bin/api.pl?lon=${selectedCity.lon}&lat=${selectedCity.lat}&product=civillight&output=xml`
           );
 
           if (!response.ok) {
@@ -141,7 +141,7 @@ function App() {
           <h3 className="sub-sub-heading">
             Powered by
             <a
-              href="http://www.7timer.info/doc.php?lang=en"
+              href="https://www.7timer.info/doc.php?lang=en"
               target="_blank"
               data-toggle="tooltip"
               data-placement="Top"
